@@ -31,7 +31,8 @@ function generateCurrentVerse() {
         for (j in teamColors) {
           if (words[i].slice(-1) == (j).toString()) {
             //'class="boxy" ' +
-            textStyle = "data-color=\"" + teamColors[j][0] + "\" data-textcolor=\"" + teamColors[j][1] + "\" class=\"colorful\"";
+            textStyle = "data-color=\"" + teamColors[j][0] + "\" data-textcolor=\"" + teamColors[j][1] + 
+            "\" data-word=\"" + teamColors[j][2] + "\" class=\"colorful\"";
             word = word.substring(0,word.length-1);
           } 
         }
@@ -52,6 +53,14 @@ function generateCurrentVerse() {
       generatedLyrics += '</div>';
     }
     $('.text-container').html(generatedLyrics);
+
+    $('#pointer').attr("class", "dot " + default_color + "-knife");
+    $('#0').children().each(function() {
+      if ($(this).hasClass("colorful")) {            
+        word = $(this).data('word');
+        $('#pointer').attr("class", "dot " + word + "-knife");
+      }
+    });
   }
 
 
@@ -86,19 +95,22 @@ function generateCurrentVerse() {
       setTimeout(function() {
         generateCurrentVerse();
       }, 50);
-      
 
     } else {
       setTimeout(function() {
         // loop through children
+        $('#pointer').attr("class", "dot " + default_color + "-knife");
+        console.log(default_color, $('#pointer').attr("class"));
         $('#' + (highlightedLine)).children().each(function() {
-          color = $(this).data('color');
-          textcolor = $(this).data('textcolor');
-          $(this).css('backgroundColor', color);
-          $(this).css('color', textcolor);
           if ($(this).hasClass("colorful")) {            
+            color = $(this).data('color');
+            textcolor = $(this).data('textcolor');
+            word = $(this).data('word');
+            $(this).css('backgroundColor', color);
+            $(this).css('color', textcolor);
             $(this).css('padding-left', 20);
             $(this).css('padding-right', 20);
+            $('#pointer').attr("class", "dot " + word + "-knife");
           }
         });
         

@@ -45,14 +45,45 @@ body {
   padding-left: 25px;
   
   background-repeat: no-repeat;
-  background-image: url('../images/gray_knife_02.png');
   background-size: 30%;
   background-position: right center;
   z-index: -100;
 }
 
-.gray-knife {
-  /*background-image: url('../images/gray_knife_02.png');*/
+.pink-knife {
+  background-image: url('../images/pink_knife_02.png');
+}
+
+.red-knife {
+  background-image: url('../images/red_knife_02.png');
+}
+
+.orange-knife {
+  background-image: url('../images/orange_knife_02.png');
+}
+
+.yellow-knife {
+  background-image: url('../images/yellow_knife_02.png');
+}
+
+.green-knife {
+  background-image: url('../images/green_knife_02.png');
+}
+
+.blue-knife {
+  background-image: url('../images/blue_knife_02.png');
+}
+
+.purple-knife {
+  background-image: url('../images/purple_knife_02.png');
+}
+
+.silver-knife {
+  background-image: url('../images/silver_knife_02.png');
+}
+
+.white-knife {
+  background-image: url('../images/white_knife_02.png');
 }
 
 .text-line {

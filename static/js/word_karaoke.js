@@ -23,7 +23,8 @@ function generateCurrentLine() {
     word = words[i];
     for (j in teamColors) {
       if (words[i].indexOf(j) > 0){
-        textStyle = "data-color=\"" + teamColors[j][0] + "\" data-textcolor=\"" + teamColors[j][1] + "\"";
+        textStyle = "data-color=\"" + teamColors[j][0] + "\" data-textcolor=\"" + teamColors[j][1] + 
+        "\" data-word=\"" + teamColors[j][2] + "\" class=\"colorful\"";
         word = word.substring(0,word.length-1)
       }
     }
@@ -49,12 +50,11 @@ $('.text-container').html(generatedLyrics)
 }
 
 function init() {
-generateCurrentLine();
+  $('#pointer').attr("class", "dot " + default_color + "-knife");
+  generateCurrentLine();
 }
 
 function nextStep() {
-console.log(currentLine);
-
 if (highlightedWord + 1 > lyrics[currentLine].split(' ').length) {
   currentLine ++;
 
@@ -71,6 +71,7 @@ if (highlightedWord + 1 > lyrics[currentLine].split(' ').length) {
   highlightedWord = 0;
   $('.dot').stop().animate({
     top: 1 * LINE_HEIGHT - SHIFT,
+    opacity: 0.8,
   }, 100, function() {
     console.log('start highlight')
   });
@@ -88,8 +89,10 @@ if (highlightedWord + 1 > lyrics[currentLine].split(' ').length) {
       if ($('#' + (highlightedWord)).data('color')) {
         color = $('#' + (highlightedWord)).data('color');
         textcolor = $('#' + (highlightedWord)).data('textcolor');
+        word = $(this).data('word');
         $('#' + (highlightedWord)).css('backgroundColor', color)
         $('#' + (highlightedWord)).css('color', textcolor)
+        $('#pointer').attr("class", "dot " + word + "-knife");
       }
       $('#' + (highlightedWord-1)).removeClass('highlight');
       $('#' + (highlightedWord)).addClass('highlight');
