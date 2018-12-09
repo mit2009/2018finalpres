@@ -3,11 +3,9 @@
 
 <head>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../static/css/reset.css" media="screen" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="js/scripts.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
   <style>
     body,
@@ -63,7 +61,7 @@
     }
   </style>
   <script type="text/javascript">
-    var ref = new Firebase('https://2009counter.firebaseio.com')
+    var ref = new Firebase('https://twodoubleoninecounter.firebaseio.com')
     currentVal = 0;
     ref.on('value', function (val) {
       var data = val.val();
