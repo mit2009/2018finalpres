@@ -60,8 +60,9 @@ if (highlightedWord + 1 > lyrics[currentLine].split(' ').length) {
 
   if (currentLine >= lyrics.length) {
     $('.dot').stop().animate({
-      top: 1950
+      opacity: 0
     }, 100, function() {
+      $('.text-container').html("")
       console.log('dot leaves forever');
     })
     $('#' + (highlightedWord-1)).removeClass('highlight');

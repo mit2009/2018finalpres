@@ -75,8 +75,9 @@ function generateCurrentVerse() {
 
       if (currentVerse >= lyrics.length) {
         $('.dot').stop().animate({
-          top: 1950
+          opacity: 0
         }, 100, function() {
+          $('.text-container').html("")
           console.log('dot leaves forever');
         });
         $('#' + (highlightedLine-1)).removeClass('highlight');
@@ -110,6 +111,7 @@ function generateCurrentVerse() {
             $(this).css('color', textcolor);
             $(this).css('padding-left', 20);
             $(this).css('padding-right', 20);
+            $(this).css('text-shadow', "0px 0px #000000");
             $('#pointer').attr("class", "dot " + word + "-knife");
           }
         });
