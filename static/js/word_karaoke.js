@@ -69,8 +69,17 @@ if (highlightedWord + 1 > lyrics[currentLine].split(' ').length) {
   } 
 
   highlightedWord = 0;
+
+  // if next line big // god this is so sketchy LOLOL:
+  let nextFirstWord = lyrics[currentLine].split(' ')[0];
+  let nextFirstWordBigCount = 0;
+  while (nextFirstWord.indexOf('#') > 0) {
+    nextFirstWordBigCount += 1;
+    nextFirstWord = nextFirstWord.substring(0,word.length-1);
+  }
+
   $('.dot').stop().animate({
-    top: 1 * LINE_HEIGHT - SHIFT,
+    top: 1 * LINE_HEIGHT - SHIFT + 48 * nextFirstWordBigCount,
     opacity: 0.8,
   }, 100, function() {
     console.log('start highlight')
