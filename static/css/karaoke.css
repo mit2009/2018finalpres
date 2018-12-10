@@ -22,7 +22,7 @@ body {
 }
 
 .lyrics-container {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 50px;
   left: 150px;
   top: 50%;
@@ -104,5 +104,5 @@ body {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
